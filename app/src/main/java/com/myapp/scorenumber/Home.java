@@ -13,11 +13,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +34,7 @@ public class Home extends AppCompatActivity {
     private RadioGroup rbgroup;
     private RadioButton rbFemale,rbMale;
     private FirebaseAuth mAuth;
+    private String uuid;
     FirebaseFirestore db;
 
     @Override
@@ -50,7 +55,7 @@ public class Home extends AppCompatActivity {
         btcontinue = (Button)findViewById(R.id.btcontinue);
 
         db = FirebaseFirestore.getInstance();
-
+        uuid = mAuth.getUid();
 
 
         rbgroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -87,7 +92,7 @@ public class Home extends AppCompatActivity {
                     user.put("DOB",dob);
 
                     db.collection("player_user")
-                            .document(mAuth.getUid())
+                            .document(uuid)
                             .set(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -110,4 +115,25 @@ public class Home extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        db.collection("player_user")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (DocumentSnapshot documentSnapshot : task.getResult()){
+                                String id = documentSnapshot.getId();
+                                if( uuid.equals(id)){
+                                    Intent intent = new Intent(Home.this,Main_Home.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        }
+                    }
+                });
+    }
 }
