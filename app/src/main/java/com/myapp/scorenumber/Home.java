@@ -29,6 +29,7 @@ public class Home extends AppCompatActivity {
     private RadioGroup rbgroup;
     private RadioButton rbFemale,rbMale;
     private FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class Home extends AppCompatActivity {
 
         btcontinue = (Button)findViewById(R.id.btcontinue);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
 
