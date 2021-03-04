@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scorenumber">
-        <activity android:name=".Main_Home"></activity>
+        <activity android:name=".Creatematch"></activity>
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".Main_Home" />
         <activity android:name=".Verify_otp" />
         <activity android:name=".Send_otp" />
         <activity android:name=".Home" />
