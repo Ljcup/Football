@@ -17,6 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import dalvik.system.InMemoryDexClassLoader;
+
 public class Main_Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
@@ -76,6 +78,26 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
                 break;
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
+                break;
+
+            case R.id.nav_rules:
+                Intent intent1 = new Intent(Main_Home.this,Rules.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.nav_profile:
+                Intent intent2 = new Intent(Main_Home.this,Profile.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.nav_aboutus:
+                Intent intent3 = new Intent(Main_Home.this,AboutUs.class);
+                startActivity(intent3);
+                break;
+
+            case R.id.nav_contactus:
+                Intent intent4 = new Intent(Main_Home.this,ContactUs.class);
+                startActivity(intent4);
                 break;
         }
 
