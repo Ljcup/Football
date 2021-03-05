@@ -3,10 +3,12 @@ package com.myapp.scorenumber;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,10 +25,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
     private EditText etName,etEmail,etDOB;
     private Button btcontinue;
@@ -74,6 +77,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        etDOB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
+            }
+        });
+
         btcontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,7 +124,15 @@ public class Home extends AppCompatActivity {
         });
 
     }
-
+    private void showDatePicker(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -135,5 +153,11 @@ public class Home extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+        String date = month +"/"+dayOfMonth+"/"+year;
+        etDOB.setText(date);
     }
 }
