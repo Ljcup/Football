@@ -108,6 +108,9 @@ public class Home extends AppCompatActivity implements DatePickerDialog.OnDateSe
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(Home.this,"Successful",Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Home.this,Main_Home.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -117,9 +120,6 @@ public class Home extends AppCompatActivity implements DatePickerDialog.OnDateSe
                                 }
                             });
                 }
-                Intent intent = new Intent(Home.this,Main_Home.class);
-                startActivity(intent);
-                finish();
             }
         });
 
