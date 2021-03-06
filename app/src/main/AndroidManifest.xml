@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scorenumber">
-        <activity android:name=".ContactUs"></activity>
+        <activity android:name=".Match"></activity>
+        <activity android:name=".ContactUs" />
         <activity android:name=".AboutUs" />
         <activity android:name=".Profile" />
         <activity android:name=".Rules" />

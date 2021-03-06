@@ -44,14 +44,14 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
 //        menu.findItem(R.id.nav_logout).setVisible(true);
 //        menu.findItem(R.id.nav_profile).setVisible(true);
 
-        navigationView.bringToFront();;
+        navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_closer);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.setCheckedItem(R.id.nav_match);
+        navigationView.setCheckedItem(R.id.nav_home);
 
     }
 
@@ -70,8 +70,14 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch (menuItem.getItemId()){
-            case R.id.nav_match:
+            case R.id.nav_home:
                 break;
+
+            case R.id.nav_match:
+                Intent intent5 = new Intent(Main_Home.this,Match.class);
+                startActivity(intent5);
+                break;
+
             case R.id.nav_creatematch:
                 Intent intent = new Intent(Main_Home.this,Creatematch.class);
                 startActivity(intent);
