@@ -77,7 +77,7 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(intent);
                 break;
             case R.id.nav_logout:
-                FirebaseAuth.getInstance().signOut();
+                logout();
                 break;
 
             case R.id.nav_rules:
@@ -104,5 +104,12 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent i1 = new Intent(Main_Home.this,Send_otp.class);
+        startActivity(i1);
+        finish();
     }
 }

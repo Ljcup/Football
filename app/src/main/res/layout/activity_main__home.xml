@@ -19,6 +19,12 @@
         app:menu="@menu/main_menu"
         android:layout_gravity="start"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ljcup"
+        android:padding="10dp">
+    </ImageView>
 
     <ScrollView
         android:layout_width="match_parent"
