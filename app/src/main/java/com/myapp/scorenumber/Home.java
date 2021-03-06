@@ -158,7 +158,9 @@ public class Home extends AppCompatActivity implements DatePickerDialog.OnDateSe
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-        String date = month +"/"+dayOfMonth+"/"+year;
+
+        int new_month = month + 1;
+        String date = new_month +"/"+dayOfMonth+"/"+year;
         etDOB.setText(date);
     }
 }
