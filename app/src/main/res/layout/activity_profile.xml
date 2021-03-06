@@ -65,7 +65,19 @@
         android:layout_toRightOf="@id/prdob"
         android:layout_below="@+id/LL1"
         android:textSize="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="53dp"
+        android:id="@+id/prdobdot"
+        android:layout_marginTop="25dp"
+        android:text=":"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/prdobdot"
+        android:layout_below="@+id/LL1"
+        android:textSize="30dp"
+        android:layout_marginLeft="40dp"
         android:id="@+id/prdobdata"
         android:layout_marginTop="25dp"
         />
@@ -85,13 +97,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/premail"
+        android:layout_below="@+id/prdobdot"
+        android:textSize="30dp"
+        android:layout_marginLeft="38dp"
+        android:id="@+id/premaildot"
+        android:layout_marginTop="15dp"
+        android:text=":"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/premaildot"
         android:layout_below="@+id/prdobdata"
         android:textSize="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="39dp"
         android:id="@+id/premaildata"
         android:layout_marginTop="15dp"
         />
-
     <TextView
         android:id="@+id/prgender"
         android:layout_width="wrap_content"
@@ -106,10 +129,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/premail"
+        android:layout_toRightOf="@id/prgender"
+        android:layout_below="@+id/premaildot"
+        android:textSize="30dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/prgenderdot"
+        android:layout_marginTop="15dp"
+        android:text=":"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/premaildot"
         android:layout_below="@+id/premaildata"
         android:textSize="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="39dp"
         android:id="@+id/prgenderdata"
         android:layout_marginTop="15dp"
         />
