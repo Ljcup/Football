@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -47,7 +48,7 @@ public class Home extends AppCompatActivity implements DatePickerDialog.OnDateSe
 
         mAuth = FirebaseAuth.getInstance();
 
-        etName = (EditText)findViewById(R.id.etPersonName);
+        etName = (EditText) findViewById(R.id.etPersonName);
         etEmail = (EditText)findViewById(R.id.etEmailAddress);
         etDOB = (EditText)findViewById(R.id.etDate);
 
