@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Main_Home"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    >
-
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -17,24 +15,21 @@
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
-        android:layout_gravity="start"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ljcup"
-        android:padding="10dp">
-    </ImageView>
+        android:layout_gravity="start" />
 
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ljcup"
+        android:padding="10dp"/>
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF">
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="0dp"
@@ -45,14 +40,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_baseline_menu_24"
-                >
-
-
+                app:navigationIcon="@drawable/ic_baseline_menu_24">
             </androidx.appcompat.widget.Toolbar>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -21,6 +21,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/LL1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_alignParentStart="true"
@@ -47,10 +48,80 @@
             android:layout_marginTop="10dp">
         </TextView>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/prdob"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:text="DOB"
+        android:layout_below="@id/LL1"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/prdob"
+        android:layout_below="@+id/LL1"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/prdobdata"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/premail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_below="@id/prdob"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/premail"
+        android:layout_below="@+id/prdobdata"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/premaildata"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/prgender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:layout_below="@id/premail"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/premail"
+        android:layout_below="@+id/premaildata"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/prgenderdata"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:id="@+id/prbtnsignout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prgender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Sign Out"
+        />
 
 </RelativeLayout>
