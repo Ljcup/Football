@@ -77,10 +77,10 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/prdobdot"
         android:layout_below="@+id/LL1"
-        android:textSize="30dp"
+        android:textSize="15dp"
         android:layout_marginLeft="40dp"
         android:id="@+id/prdobdata"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         />
 
     <TextView
@@ -111,10 +111,10 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/premaildot"
         android:layout_below="@+id/prdobdata"
-        android:textSize="30dp"
+        android:textSize="15dp"
         android:layout_marginLeft="39dp"
         android:id="@+id/premaildata"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         />
     <TextView
         android:id="@+id/prgender"
@@ -144,10 +144,10 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/premaildot"
         android:layout_below="@+id/premaildata"
-        android:textSize="30dp"
+        android:textSize="15dp"
         android:layout_marginLeft="39dp"
         android:id="@+id/prgenderdata"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         />
 
     <Button
