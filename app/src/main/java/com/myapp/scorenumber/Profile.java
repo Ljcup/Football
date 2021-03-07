@@ -2,6 +2,7 @@ package com.myapp.scorenumber;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +35,11 @@ public class Profile extends AppCompatActivity {
         email = (TextView)findViewById(R.id.premaildata);
         gender = (TextView)findViewById(R.id.prgenderdata);
         logout = (Button)findViewById(R.id.prbtnsignout);
+
+        Toolbar toolbar =findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db.collection("player_user")
                 .document(mAuth.getUid())

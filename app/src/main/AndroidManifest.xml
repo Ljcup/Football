@@ -11,13 +11,20 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scorenumber">
-        <activity android:name=".Match"></activity>
-        <activity android:name=".ContactUs" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Rules" />
-        <activity android:name=".Creatematch" />
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".Match"
+            android:parentActivityName=".Main_Home"></activity>
+        <activity android:name=".ContactUs"
+            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".AboutUs"
+            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".Profile"
+            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".Rules"
+            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".Creatematch"
+            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".SecondActivity"
+            android:parentActivityName=".Main_Home"/>
         <activity android:name=".Main_Home" />
         <activity android:name=".Verify_otp" />
         <activity android:name=".Send_otp" />
@@ -29,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"
