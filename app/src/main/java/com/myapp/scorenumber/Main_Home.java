@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -39,7 +40,6 @@ public class Main_Home extends AppCompatActivity implements NavigationView.OnNav
 
         setSupportActionBar(toolbar);
 
-//
 //        Menu menu = navigationView.getMenu();
 //        menu.findItem(R.id.nav_logout).setVisible(true);
 //        menu.findItem(R.id.nav_profile).setVisible(true);

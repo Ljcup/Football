@@ -11,20 +11,28 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scorenumber">
-        <activity android:name=".Match"
-            android:parentActivityName=".Main_Home"></activity>
-        <activity android:name=".ContactUs"
-            android:parentActivityName=".Main_Home"/>
-        <activity android:name=".AboutUs"
-            android:parentActivityName=".Main_Home"/>
-        <activity android:name=".Profile"
-            android:parentActivityName=".Main_Home"/>
-        <activity android:name=".Rules"
-            android:parentActivityName=".Main_Home"/>
-        <activity android:name=".Creatematch"
-            android:parentActivityName=".Main_Home"/>
-        <activity android:name=".SecondActivity"
-            android:parentActivityName=".Main_Home"/>
+        <activity android:name=".datab"></activity>
+        <activity
+            android:name=".Match"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".ContactUs"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".AboutUs"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".Profile"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".Rules"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".Creatematch"
+            android:parentActivityName=".Main_Home" />
+        <activity
+            android:name=".SecondActivity"
+            android:parentActivityName=".Main_Home" />
         <activity android:name=".Main_Home" />
         <activity android:name=".Verify_otp" />
         <activity android:name=".Send_otp" />
@@ -36,7 +44,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
