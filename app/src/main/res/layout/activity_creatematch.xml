@@ -1,40 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Creatematch">
-
-
-    <ScrollView
+    tools:context=".Creatematch"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="#00008577"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-                app:title="Create Match"
-                >
-
-
-            </androidx.appcompat.widget.Toolbar>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content"
+        android:background="#00008577"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+        app:title="Create Match">
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Organizer : "
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Team1 Name : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Team1 Captain : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Team2 Name : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Team2 Captain : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Location : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Date : "
+            android:textStyle="bold"
+            android:textSize="20dp">
+        </TextView>
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:textSize="20dp">
+        </EditText>
+    </LinearLayout>
+</LinearLayout>
