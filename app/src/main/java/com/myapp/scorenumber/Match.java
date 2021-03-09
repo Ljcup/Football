@@ -83,12 +83,12 @@ public class Match extends AppCompatActivity {
         LinearLayout linearLayout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            team1name = itemView.findViewById(R.id.team1name);
-            team2name = itemView.findViewById(R.id.team2name);
-            team1score = itemView.findViewById(R.id.team1score);
-            team2score = itemView.findViewById(R.id.team2score);
+            team1name = (TextView)findViewById(R.id.team1name);
+            team2name = (TextView)findViewById(R.id.team2name);
+            team1score = (TextView)findViewById(R.id.team1score);
+            team2score = (TextView)findViewById(R.id.team2score);
 
-            linearLayout = itemView.findViewById(R.id.row);
+            linearLayout = (LinearLayout)findViewById(R.id.row);
         }
     }
 }
