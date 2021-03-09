@@ -6,6 +6,7 @@ public class MyModel {
 
     private MyModel(){
     }
+
     private MyModel(String Team1,String Team2,int Team1score,int Team2score){
         this.Team1 = Team1;
         this.Team2 = Team2;
