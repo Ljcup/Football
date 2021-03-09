@@ -81,15 +81,10 @@ public class Send_otp extends AppCompatActivity {
             public void onCodeSent(@NonNull String verificationID, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
 
                 Toast.makeText(Send_otp.this,"OTP Sent",Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent i = new Intent(Send_otp.this,Verify_otp.class);
-                        i.putExtra("mobileno", etmono.getText().toString());
-                        i.putExtra("VerificationId",verificationID);
-                        startActivity(i);
-                    }
-                },4000);
+                Intent i = new Intent(Send_otp.this,Verify_otp.class);
+                i.putExtra("mobileno", etmono.getText().toString());
+                i.putExtra("VerificationId",verificationID);
+                startActivity(i);
             }
         };
     }
@@ -99,9 +94,7 @@ public class Send_otp extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(Send_otp.this,Home.class);
-            startActivity(intent);
-            finish();
+            skipclass sk = new skipclass(Send_otp.this);
         }
     }
 
@@ -111,9 +104,7 @@ public class Send_otp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent_ = new Intent(Send_otp.this,Home.class);
-                            startActivity(intent_);
-                            finish();;
+                            skipclass sk = new skipclass(Send_otp.this);
                             Toast.makeText(Send_otp.this,"Verified",Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(Send_otp.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();

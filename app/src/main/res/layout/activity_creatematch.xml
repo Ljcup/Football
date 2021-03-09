@@ -31,11 +31,12 @@
             android:textSize="20dp"
             android:layout_marginStart="10dp">
         </TextView>
+
         <EditText
-            android:layout_height="wrap_content"
+            android:id="@+id/etorgname"
             android:layout_width="200dp"
-            android:textSize="20dp">
-        </EditText>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"></EditText>
     </LinearLayout>
     <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -49,11 +50,12 @@
             android:textStyle="bold"
             android:textSize="20dp">
         </TextView>
+
         <EditText
-            android:layout_height="wrap_content"
+            android:id="@+id/etteam1name"
             android:layout_width="200dp"
-            android:textSize="20dp">
-        </EditText>
+            android:layout_height="wrap_content"
+            android:textSize="20dp"></EditText>
     </LinearLayout>
     <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -68,6 +70,7 @@
             android:textSize="20dp">
         </TextView>
         <EditText
+            android:id="@+id/etteam1cap"
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:textSize="20dp">
@@ -86,6 +89,7 @@
             android:textSize="20dp">
         </TextView>
         <EditText
+            android:id="@+id/etteam2name"
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:textSize="20dp">
@@ -104,6 +108,7 @@
             android:textSize="20dp">
         </TextView>
         <EditText
+            android:id="@+id/etteam2cap"
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:textSize="20dp">
@@ -122,6 +127,7 @@
             android:textSize="20dp">
         </TextView>
         <EditText
+            android:id="@+id/etlocation"
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:textSize="20dp">
@@ -140,10 +146,20 @@
             android:textSize="20dp">
         </TextView>
         <EditText
+            android:id="@+id/etdate"
             android:layout_height="wrap_content"
             android:layout_width="200dp"
             android:textSize="20dp">
         </EditText>
 
     </LinearLayout>
+    <Button
+        android:id="@+id/btcreatematch"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Create Match"
+        android:clickable="true"
+        android:layout_gravity="center_horizontal">
+    </Button>
 </LinearLayout>

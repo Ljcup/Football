@@ -88,9 +88,7 @@ public class Verify_otp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Intent intent = new Intent(Verify_otp.this,Home.class);
-                            startActivity(intent);
-                            finish();
+                           skipclass sc = new skipclass(Verify_otp.this);
                             Toast.makeText(Verify_otp.this,"Verified",Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(Verify_otp.this,"The OTP is invalid",Toast.LENGTH_SHORT).show();
