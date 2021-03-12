@@ -31,9 +31,6 @@
         <activity
             android:name=".Creatematch"
             android:parentActivityName=".Main_Home" />
-        <activity
-            android:name=".SecondActivity"
-            android:parentActivityName=".Main_Home" />
         <activity android:name=".Main_Home" />
         <activity android:name=".Verify_otp" />
         <activity android:name=".Send_otp" />

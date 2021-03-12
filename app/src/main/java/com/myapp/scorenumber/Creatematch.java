@@ -82,6 +82,7 @@ public class Creatematch extends AppCompatActivity {
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(Creatematch.this,"Successful",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Creatematch.this,scoring.class);
+                                intent.putExtra("matchid",documentReference.getId());
                                 startActivity(intent);
                                 finish();
                             }

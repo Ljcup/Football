@@ -3,6 +3,7 @@ package com.myapp.scorenumber;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class scoring extends AppCompatActivity {
 
