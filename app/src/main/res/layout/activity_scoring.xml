@@ -105,7 +105,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btna1"
+        android:id="@+id/team1point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll2"
@@ -115,32 +115,32 @@
         />
 
     <Button
-        android:id="@+id/btna2"
+        android:id="@+id/team2point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll2"
-        android:layout_toRightOf="@id/btna1"
+        android:layout_toRightOf="@id/team1point"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="75dp"
         android:hint="+1"
         />
 
     <Button
-        android:id="@+id/btnm1"
+        android:id="@+id/undoteam1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btna1"
+        android:layout_below="@+id/team1point"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="75dp"
         android:hint="-1"
         />
 
     <Button
-        android:id="@+id/btnm2"
+        android:id="@+id/undoteam2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btna2"
-        android:layout_toRightOf="@id/btnm1"
+        android:layout_below="@+id/team2point"
+        android:layout_toRightOf="@id/undoteam1"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="15dp"
         android:hint="-1"
