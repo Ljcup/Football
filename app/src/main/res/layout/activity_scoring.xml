@@ -146,4 +146,14 @@
         android:hint="-1"
         />
 
+    <Button
+        android:id="@+id/finishcurrentmatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:layout_below="@+id/undoteam1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        />
+
 </RelativeLayout>
