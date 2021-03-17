@@ -12,6 +12,7 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,6 +42,8 @@ public class Send_otp extends AppCompatActivity {
 
         btsendotp = (Button)findViewById(R.id.btsendotp);
         etmono = (EditText)findViewById(R.id.etmono);
+        final ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,6 +56,8 @@ public class Send_otp extends AppCompatActivity {
                 }
                 else
                 {
+                    progressBar.setVisibility(View.VISIBLE);
+                    btsendotp.setVisibility(View.INVISIBLE);
                     String mobile = etmono.getText().toString().trim();
 
                     PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
@@ -95,6 +100,7 @@ public class Send_otp extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             skipclass sk = new skipclass(Send_otp.this);
+            finish();
         }
     }
 

@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,9 @@ public class Verify_otp extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         verificationID = getIntent().getStringExtra("VerificationId");
 
+        final ProgressBar progressBar = findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.INVISIBLE);
+
         inotp1 = (EditText)findViewById(R.id.inotp1);
         inotp2 = (EditText)findViewById(R.id.inotp2);
         inotp3 = (EditText)findViewById(R.id.inotp3);
@@ -65,6 +69,9 @@ public class Verify_otp extends AppCompatActivity {
                     Toast.makeText(Verify_otp.this,"Enter Valid OTP",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                progressBar.setVisibility(View.VISIBLE);
+                btverify.setVisibility(View.INVISIBLE);
+                
                 String code = inotp1.getText().toString().trim() +
                         inotp2.getText().toString().trim() +
                         inotp3.getText().toString().trim() +
