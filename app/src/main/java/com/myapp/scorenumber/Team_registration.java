@@ -110,6 +110,8 @@ public class Team_registration extends AppCompatActivity {
                     }
                 });
 
+
+
                 addmem.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -125,6 +127,25 @@ public class Team_registration extends AppCompatActivity {
                         }else {
 
                             Map<String,Object> teamdata = new HashMap<>();
+                            teamdata.put("Name",strname);
+                            teamdata.put("email",stremail);
+                            teamdata.put("dob",strdob);
+                            teamdata.put("Phone no.",mobilenumber);
+
+                            db.collection()
+                                    .add()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Toast.makeText(Team_registration.this,"Successful",Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Team_registration.this,e.getMessage().toString(),Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                         }
                     }
                 });
