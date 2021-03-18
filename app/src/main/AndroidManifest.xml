@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scorenumber">
+        <activity android:name=".Team_registration"></activity>
         <activity android:name=".datab" />
         <activity
             android:name=".Match"
@@ -30,8 +31,9 @@
         <activity
             android:name=".Creatematch"
             android:parentActivityName=".Main_Home" />
-        <activity android:name=".scoring"
-            android:parentActivityName=".Creatematch"></activity>
+        <activity
+            android:name=".scoring"
+            android:parentActivityName=".Creatematch" />
         <activity android:name=".Main_Home" />
         <activity android:name=".Verify_otp" />
         <activity android:name=".Send_otp" />
