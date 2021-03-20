@@ -98,6 +98,7 @@ public class Team_registration extends AppCompatActivity {
                 dob = dialog.findViewById(R.id.edtregdob);
                 addmem = dialog.findViewById(R.id.btnregadd);
 
+                //this is comment
                 rbmale = (RadioButton)dialog.findViewById(R.id.regrbmale);
                 rbfemale = (RadioButton)dialog.findViewById(R.id.regrbfemale);
                 gendergroup = (RadioGroup)dialog.findViewById(R.id.tmregregradioGroup);
