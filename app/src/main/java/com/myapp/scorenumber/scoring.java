@@ -65,7 +65,6 @@ public class scoring extends AppCompatActivity {
                      }
                      if(value != null && value.exists())
                      {
-
                          Team1.setText(value.getString("Team1"));
                          Team2.setText(value.getString("Team2"));
                          Team1score.setText(value.getLong("Team1score")+"");

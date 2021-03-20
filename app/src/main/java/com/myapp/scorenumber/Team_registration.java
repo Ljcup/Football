@@ -16,8 +16,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,7 +36,8 @@ public class Team_registration extends AppCompatActivity {
     private RadioButton rbmale,rbfemale;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
-    String gender=null;
+    String gender;
+    String docid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public class Team_registration extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Toast.makeText(Team_registration.this,"Successful",Toast.LENGTH_SHORT).show();
+                                     docid = documentReference.getId();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -92,8 +96,8 @@ public class Team_registration extends AppCompatActivity {
                 dob = findViewById(R.id.edtregdob);
                 addmem = findViewById(R.id.btnregadd);
 
-                rbmale = findViewById(R.id.regrbmale);
-                rbfemale = findViewById(R.id.regrbfemale);
+                rbmale = (RadioButton) findViewById(R.id.regrbmale);
+                rbfemale = (RadioButton) findViewById(R.id.regrbfemale);
 
 
                 gendergroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -122,7 +126,7 @@ public class Team_registration extends AppCompatActivity {
                         final String strdob = dob.getText().toString().trim();
                         mobilenumber =  Integer.parseInt(monbileno.getText().toString().trim()) ;
 
-                        if (strname.isEmpty() || strdob.isEmpty() || stremail.isEmpty() || mobilenumber==0 || gender.isEmpty()){
+                        if (strname.isEmpty() || strdob.isEmpty() || stremail.isEmpty() || mobilenumber==0){
                             Toast.makeText(Team_registration.this,"Enter all data",Toast.LENGTH_SHORT).show();
                         }else {
 
@@ -132,18 +136,12 @@ public class Team_registration extends AppCompatActivity {
                             teamdata.put("dob",strdob);
                             teamdata.put("Phone no.",mobilenumber);
 
-                            db.collection()
-                                    .add()
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            db.collection("team_name").document(docid).collection(teamname.getText().toString().trim())
+                                    .add(teamdata)
+                                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                         @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Toast.makeText(Team_registration.this,"Successful",Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(Team_registration.this,e.getMessage().toString(),Toast.LENGTH_SHORT).show();
+                                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                                            Toast.makeText(Team_registration.this,"Done",Toast.LENGTH_SHORT).show();
                                         }
                                     });
                         }
