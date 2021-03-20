@@ -124,11 +124,10 @@ public class Team_registration extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        int mobilenumber = 0;
+                        final String mobilenumber = monbileno.getText().toString().trim();
                         final String strname = name.getText().toString().trim();
                         final String stremail = email.getText().toString().trim();
                         final String strdob = dob.getText().toString().trim();
-                        mobilenumber =  Integer.parseInt(monbileno.getText().toString().trim()) ;
 
                         if (TextUtils.isEmpty(strname) || TextUtils.isEmpty(stremail) || TextUtils.isEmpty(strdob)){
                             Toast.makeText(Team_registration.this,"Enter all data",Toast.LENGTH_SHORT).show();
