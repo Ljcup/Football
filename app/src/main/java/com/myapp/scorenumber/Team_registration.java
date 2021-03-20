@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.text.LocaleDisplayNames;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -127,7 +130,7 @@ public class Team_registration extends AppCompatActivity {
                         final String strdob = dob.getText().toString().trim();
                         mobilenumber =  Integer.parseInt(monbileno.getText().toString().trim()) ;
 
-                        if (strname.isEmpty() || strdob.isEmpty() || stremail.isEmpty() || mobilenumber==0){
+                        if (TextUtils.isEmpty(strname) || TextUtils.isEmpty(stremail) || TextUtils.isEmpty(strdob)){
                             Toast.makeText(Team_registration.this,"Enter all data",Toast.LENGTH_SHORT).show();
                         }else {
 
@@ -136,6 +139,7 @@ public class Team_registration extends AppCompatActivity {
                             teamdata.put("email",stremail);
                             teamdata.put("dob",strdob);
                             teamdata.put("Phone no.",mobilenumber);
+                            teamdata.put("gender",gender);
 
                             db.collection("team_name").document(docid).collection(teamname.getText().toString().trim())
                                     .add(teamdata)
@@ -143,6 +147,7 @@ public class Team_registration extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<DocumentReference> task) {
                                             Toast.makeText(Team_registration.this,"Done",Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
                                         }
                                     });
                         }
