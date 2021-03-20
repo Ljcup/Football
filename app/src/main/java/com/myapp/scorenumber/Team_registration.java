@@ -1,8 +1,10 @@
 package com.myapp.scorenumber;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -32,12 +34,12 @@ public class Team_registration extends AppCompatActivity {
     private Button teamregBtn,addmem,addteamname;
     private ImageView imgclose;
     private EditText name, email , monbileno,dob,teamname;
-    private RadioGroup gendergroup;
-    private RadioButton rbmale,rbfemale;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
-    String gender;
+    private String gender;
     String docid;
+    private RadioGroup gendergroup;
+    private RadioButton rbmale,rbfemale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,7 @@ public class Team_registration extends AppCompatActivity {
         addteamname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    
                 if(teamname.getText().toString().trim().isEmpty()){
                     Toast.makeText(Team_registration.this,"Enter Team Name",Toast.LENGTH_SHORT).show();
                 }else {
@@ -90,15 +92,15 @@ public class Team_registration extends AppCompatActivity {
                 final Dialog dialog = new Dialog(Team_registration.this);
                 dialog.setContentView(R.layout.register_popup);
                 imgclose = (ImageView) dialog.findViewById(R.id.btclose);
-                name = (EditText)findViewById(R.id.edtregname);
-                email = findViewById(R.id.edtregEmail);
-                monbileno = findViewById(R.id.edtregnum);
-                dob = findViewById(R.id.edtregdob);
-                addmem = findViewById(R.id.btnregadd);
+                name = (EditText)dialog.findViewById(R.id.edtregname);
+                email = dialog.findViewById(R.id.edtregEmail);
+                monbileno = dialog.findViewById(R.id.edtregnum);
+                dob = dialog.findViewById(R.id.edtregdob);
+                addmem = dialog.findViewById(R.id.btnregadd);
 
-                rbmale = (RadioButton) findViewById(R.id.regrbmale);
-                rbfemale = (RadioButton) findViewById(R.id.regrbfemale);
-
+                rbmale = (RadioButton)dialog.findViewById(R.id.regrbmale);
+                rbfemale = (RadioButton)dialog.findViewById(R.id.regrbfemale);
+                gendergroup = (RadioGroup)dialog.findViewById(R.id.tmregregradioGroup);
 
                 gendergroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -113,9 +115,7 @@ public class Team_registration extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
+                
                 addmem.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
