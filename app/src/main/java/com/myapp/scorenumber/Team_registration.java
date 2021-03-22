@@ -3,6 +3,7 @@ package com.myapp.scorenumber;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -163,6 +164,11 @@ public class Team_registration extends AppCompatActivity {
                 dialog.show();
             }
         });
+
+        Toolbar toolbar =findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Team Registration");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 }
