@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Date of birth"
+        android:hint="Age"
         android:inputType="date"
         android:padding="10dp"
         />

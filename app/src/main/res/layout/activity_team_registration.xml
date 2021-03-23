@@ -38,6 +38,7 @@
         android:layout_marginRight="20dp"
         android:paddingLeft="0dp"
         android:paddingRight="10dp"
+        android:editable="true"
         />
 
 
@@ -62,6 +63,62 @@
         android:text="Add Team members details"
         />
 
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@id/teamregbtn"
+        android:layout_marginTop="30dp">
+
+        <TableRow
+            android:background="#03DAC5"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/white"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:text="Age"
+                android:gravity="center"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:textColor="@color/white"
+                android:text="Gender"
+                android:gravity="center"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="@color/white" />
+
+        </TableRow>
+    </TableLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tablelayout"/>
 
 
 </RelativeLayout>
