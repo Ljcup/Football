@@ -20,12 +20,15 @@ public class PersonListAdapter extends ArrayAdapter<Person> {
     private Context mContext;
     private int mResource;
     private ArrayList<Person> mylist;
+    private String docid,collectionname;
 
-    public PersonListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Person> objects) {
+    public PersonListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Person> objects,String docid,String collectionname) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
         mylist = objects;
+        this.docid = docid;
+        this.collectionname = collectionname;
     }
 
     @NonNull
@@ -51,8 +54,8 @@ public class PersonListAdapter extends ArrayAdapter<Person> {
         Remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(mContext,"Click on: "+position,Toast.LENGTH_SHORT).show();
-                Removedata rd = new Removedata(mylist,position);
+                Toast.makeText(mContext,"Click on: "+position,Toast.LENGTH_SHORT).show();
+                Removedata rd = new Removedata(mylist,position,docid,collectionname);
                 rd.findndelete();
                 Person obj = rd.findndelete();
                 mylist.remove(obj);

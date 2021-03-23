@@ -14,6 +14,7 @@ import android.icu.text.LocaleDisplayNames;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,8 +30,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
 
@@ -46,7 +51,7 @@ public class Team_registration extends AppCompatActivity {
     FirebaseFirestore db;
     FirebaseAuth mAuth;
     private String gender;
-    String docid;
+    String collectionid;
     String team_name;
     private RadioGroup gendergroup;
     private RadioButton rbmale,rbfemale;
@@ -67,8 +72,6 @@ public class Team_registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         ArrayList<Person> data = new ArrayList<>();
-
-
 
 
         addteamname.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +101,38 @@ public class Team_registration extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
                                     Toast.makeText(Team_registration.this,"Successful",Toast.LENGTH_SHORT).show();
-                                     docid = documentReference.getId();
+                                    collectionid = documentReference.getId();
+
+                                     db.collection("team_name")
+                                             .document(collectionid)
+                                             .collection(team_name)
+                                             .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                                 @Override
+                                                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                                     if (error != null) {
+                                                         Log.w("Error", "Listen failed.", error);
+                                                         return;
+                                                     }
+
+                                                     for(DocumentChange dc: value.getDocumentChanges() ){
+                                                         switch (dc.getType()){
+                                                             case ADDED:
+                                                                 if(dc.getDocument().getData() != null){
+                                                                     String name = dc.getDocument().getString("name");
+                                                                     String age = dc.getDocument().getString("age");
+                                                                     String gender = dc.getDocument().getString("gender");
+                                                                     String docid = dc.getDocument().getId();
+                                                                     Person person = new Person(name,age,gender,docid);
+                                                                     data.add(person);
+                                                                 }
+                                                         }
+                                                     }
+                                                     adapter = new PersonListAdapter(Team_registration.this,R.layout.list_layout,data,collectionid,team_name);
+                                                     listView.setAdapter(adapter);
+                                                     Log.d("Data"," "+ data);
+                                                 }
+                                             });
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -160,13 +194,13 @@ public class Team_registration extends AppCompatActivity {
                         }else {
 
                             Map<String,Object> teamdata = new HashMap<>();
-                            teamdata.put("Name",strname);
+                            teamdata.put("name",strname);
                             teamdata.put("email",stremail);
                             teamdata.put("age",strage);
-                            teamdata.put("Phone no.",mobilenumber);
+                            teamdata.put("mobileno.",mobilenumber);
                             teamdata.put("gender",gender);
 
-                            db.collection("team_name").document(docid).collection(team_name)
+                            db.collection("team_name").document(collectionid).collection(team_name)
                                     .add(teamdata)
                                     .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                         @Override
