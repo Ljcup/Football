@@ -59,7 +59,7 @@ public class Creatematch extends AppCompatActivity {
         autoCompleteTextView2 = findViewById(R.id.autoCompleteTextView2);
 
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-        CollectionReference subjectsRef = rootRef.collection("UsersData");
+        CollectionReference subjectsRef = rootRef.collection("team_name");
         List<String> subjects = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, subjects);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -69,7 +69,7 @@ public class Creatematch extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String subject = document.getString("name");
+                        String subject = document.getString("teamname");
                         subjects.add(subject);
                     }
                     adapter.notifyDataSetChanged();
@@ -84,7 +84,7 @@ public class Creatematch extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String subject = document.getString("name");
+                        String subject = document.getString("teamname");
                         subjects.add(subject);
                     }
                     adapter.notifyDataSetChanged();
