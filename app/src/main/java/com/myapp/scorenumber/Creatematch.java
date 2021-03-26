@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -38,9 +39,6 @@ public class Creatematch extends AppCompatActivity {
     private TextInputLayout textInputLayout;
     private AutoCompleteTextView autoCompleteTextView,autoCompleteTextView2;
 
-    ArrayList<String> name;
-    ArrayAdapter<String> adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,9 @@ public class Creatematch extends AppCompatActivity {
         getSupportActionBar().setTitle("Create Match");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+
 
         creatematch = (Button)findViewById(R.id.btcreatematch);
         textInputLayout = findViewById(R.id.inputlayout);
@@ -60,10 +61,9 @@ public class Creatematch extends AppCompatActivity {
 
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
         CollectionReference subjectsRef = rootRef.collection("team_name");
+
         List<String> subjects = new ArrayList<>();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, subjects);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        autoCompleteTextView.setAdapter(adapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, subjects);
         subjectsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -72,22 +72,6 @@ public class Creatematch extends AppCompatActivity {
                         String subject = document.getString("teamname");
                         subjects.add(subject);
                     }
-                    adapter.notifyDataSetChanged();
-                }
-            }
-        });
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        autoCompleteTextView2.setAdapter(adapter);
-        subjectsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        String subject = document.getString("teamname");
-                        subjects.add(subject);
-                    }
-                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -95,8 +79,12 @@ public class Creatematch extends AppCompatActivity {
         autoCompleteTextView.setAdapter(adapter);
         autoCompleteTextView2.setAdapter(adapter);
 
-        db = FirebaseFirestore.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-
+        creatematch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               final String variable  = autoCompleteTextView.getText().toString();
+                Log.d("selection",variable+"");
+            }
+        });
     }
 }
