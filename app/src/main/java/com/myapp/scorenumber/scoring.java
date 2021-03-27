@@ -73,7 +73,7 @@ public class scoring extends AppCompatActivity {
                  }
              });
 
-        final int[] counter = {0,0};
+        final int counter[] = {0,0};
 
         Scoreteam1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,20 +98,31 @@ public class scoring extends AppCompatActivity {
         Undoteam1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter[0]--;
-                Map<String,Object> score1= new HashMap<>();
-                score1.put("Team1score",counter[0]);
-                db.collection("matches").document(matchID).update(score1);
+                if(counter[0] == 0){
+
+                }else{
+                    counter[0]--;
+                    Map<String,Object> score1= new HashMap<>();
+                    score1.put("Team1score",counter[0]);
+                    db.collection("matches").document(matchID).update(score1);
+                }
+
             }
         });
 
         Undoteam2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter[1]--;
-                Map<String,Object>score2 = new HashMap<>();
-                score2.put("Team2score",counter[1]);
-                db.collection("matches").document(matchID).update(score2);
+                if(counter[1] == 0){
+
+                }
+                else {
+                    counter[1]--;
+                    Map<String,Object>score2 = new HashMap<>();
+                    score2.put("Team2score",counter[1]);
+                    db.collection("matches").document(matchID).update(score2);
+                }
+
             }
         });
 
