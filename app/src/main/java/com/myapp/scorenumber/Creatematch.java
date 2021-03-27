@@ -82,30 +82,34 @@ public class Creatematch extends AppCompatActivity {
         creatematch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String team1  = autoCompleteTextView.getText().toString();
-                final String team2 = autoCompleteTextView2.getText().toString();
+                final String team1  = autoCompleteTextView.getText().toString().trim();
+                final String team2 = autoCompleteTextView2.getText().toString().trim();
                 String orguuid = mAuth.getUid();
 
-                Map<String,Object> match = new HashMap<>();
-                match.put("Team1",team1);
-                match.put("Team2",team2);
-                match.put("orguuid",orguuid);
-                match.put("Team1score",0);
-                match.put("Team2score",0);
+                if(team1.equals(team2) || team1.equals("Select Team") || team2.equals("Select Team")){
+                    Toast.makeText(Creatematch.this,"Please Select valid Teams",Toast.LENGTH_SHORT).show();
+                }else{
+                    Map<String,Object> match = new HashMap<>();
+                    match.put("Team1",team1);
+                    match.put("Team2",team2);
+                    match.put("orguuid",orguuid);
+                    match.put("Team1score",0);
+                    match.put("Team2score",0);
 
 
-                db.collection("matches")
-                        .add(match)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(Creatematch.this,"Successful",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Creatematch.this,scoring.class);
-                                intent.putExtra("matchid",documentReference.getId());
-                                startActivity(intent);
-                                finish();
-                            }
-                        });
+                    db.collection("matches")
+                            .add(match)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Toast.makeText(Creatematch.this,"Successful",Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Creatematch.this,scoring.class);
+                                    intent.putExtra("matchid",documentReference.getId());
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+                }
 
             }
         });
