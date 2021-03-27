@@ -82,8 +82,8 @@ public class Creatematch extends AppCompatActivity {
         creatematch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               final String team1  = autoCompleteTextView.getText().toString();
-               final String team2 = autoCompleteTextView2.getText().toString();
+                final String team1  = autoCompleteTextView.getText().toString();
+                final String team2 = autoCompleteTextView2.getText().toString();
                 String orguuid = mAuth.getUid();
 
                 Map<String,Object> match = new HashMap<>();
